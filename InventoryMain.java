@@ -32,6 +32,17 @@ class removeThread extends Thread{
     }
 }
 
+class totalThread extends Thread{
+    Warehouse w;
+    int f;
+    totalThread(Warehouse wh, int flag){
+        this.w = wh;
+        this.f = flag;
+    }
+    public void run(){
+        this.w.totalInventory(f);
+    }
+}
 
 
 
@@ -90,7 +101,16 @@ public class InventoryMain {
         }
 
         
-        System.out.println("Final Inventory is: " + w.getInventory());
+
+
+        totalThread total = new totalThread(w, flag);
+        total.start();
+
+
+        //This works but we want 
+        //System.out.println("Final Inventory is: " + w.getInventory());
+
+        //TotalAllWarehouses is a thread
         //TotalAllWarehouses t = new TotalAllWarehouses(w);
         //t.run();
         

@@ -43,6 +43,18 @@ public class Warehouse {
         
         
     }
+
+    public void totalInventory(int f){
+
+        if(f == 0){
+            synchronized(this){
+                System.out.println("Final Inventory is: " + getInventory());
+            }
+        }
+        else{
+            System.out.println("Final Inventory is: " + getInventory());
+        }
+    }
    
     public int getInventory(){
         return this.inventory;
